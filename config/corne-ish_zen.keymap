@@ -9,13 +9,14 @@
 #define U_CUT &kp LC(X)
 #define U_UND &kp LC(Z)
 
-#define COLEMAK 0
-#define QWERTY 1
-#define GAME 2
-#define NAV 3
-#define NUM 4
-#define SYM 5
-#define FUN 6
+#define HANDSDOWN 0
+#define COLEMAK 1
+#define QWERTY 2
+#define GAME 3
+#define NAV 4
+#define NUM 5
+#define SYM 6
+#define FUN 7
 
 /*
 *
@@ -33,6 +34,20 @@
 / {
         keymap {
                 compatible = "zmk,keymap";
+                HANDSDOWN {
+                        label = "Hands Down";
+                        bindings = <
+/* ╔═════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═════════════════╗        ╔═════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═════════════════╗ */
+     &none                  &none              &kp G              &kp M              &kp P              &kp V                       &kp QUESTION       &kp DOT              &kp U                &kp Y               &none                &none
+/* ╔═════════════════╦═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╦═════════════════╗ */
+     &hto QWERTY J          &hm LGUI R         &hm LALT S         &hm LCTRL N        &hm LSHFT D        &kp B                       &kp COMMA          &hm LSHFT A        &hm LCTRL E          &hm LALT I          &hm LGUI H        &hto COLEMAK SEMI
+/* ╚═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╝ */
+     &none                  &kp X              &hm RALT F         &kp L              &kp C              &kp W                       &kp MINUS          &kp U              &kp O                  &kp Y               &kp K                &none
+/* ╚═════════════════╩═══════════════════╩═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╩═══════════════════╩═════════════════╝ */
+                                                                  &none              &lt NUM RET        &lt T                      &lt SYM SPC        &lt FUN BSPC       &none
+/*                                                           ╚═══════════════════╩═══════════════════╩═════════════════╝        ╚═════════════════╩═══════════════════╩═══════════════════╝                                                           */
+                             >;
+                     };
                 COLEMAK {
                         label = "Colemak";
                         bindings = <
@@ -67,7 +82,7 @@
 /* ╔═════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═════════════════╗        ╔═════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═════════════════╗ */
      &none                  &none              &kp Q              &kp W              &kp E              &none                       &none              &kp NUM_7          &kp NUM_8          &kp NUM_9              &none                &none
 /* ╔═════════════════╦═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╦═════════════════╗ */
-     &kp TILDE              &kp LSHFT          &kp A              &kp S              &kp D              &none                       &none              &kp NUM_4          &kp NUM_5          &kp NUM_6              &none            &to COLEMAK
+     &kp TILDE              &kp LSHFT          &kp A              &kp S              &kp D              &none                       &none              &kp NUM_4          &kp NUM_5          &kp NUM_6              &none            &to HANDSDOWN
 /* ╚═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╝ */
      &none                  &kp LCTRL          &kp Z              &kp X              &kp C              &none                       &none              &kp NUM_1          &kp NUM_2          &kp NUM_3              &none                &none
 /* ╚═════════════════╩═══════════════════╩═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╩═══════════════════╩═════════════════╝ */
@@ -132,22 +147,39 @@
                              >;
                      };
         };
-        behaviors {
-                hm: homerow_mods {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "HOMEROW_MODS";
-                        #binding-cells = <2>;
-                        tapping_term_ms = <250>;
-                        flavor = "tap-preferred";
-                        bindings = <&kp>, <&kp>;
-                };
-                hto: hold_to {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "HOLD TO";
-                        #binding-cells = <2>;
-                        tapping_term_ms = <350>;
-                        flavor = "tap-preferred";
-                        bindings = <&to>, <&kp>;
-                };
+     behaviors {
+          hm: homerow_mods {
+               compatible = "zmk,behavior-hold-tap";
+               label = "HOMEROW_MODS";
+               #binding-cells = <2>;
+               tapping_term_ms = <250>;
+               flavor = "tap-preferred";
+               bindings = <&kp>, <&kp>;
+          };
+          hto: hold_to {
+               compatible = "zmk,behavior-hold-tap";
+               label = "HOLD TO";
+               #binding-cells = <2>;
+               tapping_term_ms = <350>;
+               flavor = "tap-preferred";
+               bindings = <&to>, <&kp>;
+          };
+     };
+     combos {
+        compatible = "zmk,combos";
+
+        combo_z {
+               timeout-ms = <30>;
+               key-positions = <25 26>;
+               bindings = <&kp Z>;
+               layers = <0>;
         };
+
+        combo_q {
+               timeout-ms = <30>;
+               key-positions = <33 34>;
+               bindings = <&kp Q>;
+               layers = <0>;
+        };
+    };
 };
