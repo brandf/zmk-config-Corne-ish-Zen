@@ -17,18 +17,16 @@
 #define LOC_G 2
 #define LOC_M (LOC_G+1)
 
-#define LOC_x 8
+#define LOC_DQT 8
 #define LOC_V (LOC_DQT+1)
 
-#define LOC_X 25
-#define LOC_F (LOC_X+1)
+#define LOC_F 26
 #define LOC_L (LOC_X+2)
 #define LOC_C (LOC_X+3)
 
 #define LOC_U 31
 #define LOC_O (LOC_U+1)
 #define LOC_Y (LOC_U+2)
-#define LOC_K (LOC_U+3)
 
 #define LOC_NAV 37
 #define LOC_SYM 40
@@ -41,7 +39,7 @@
                                                 ╔═════╬═════╬═════╬═════╬═════╗      ╔═════╬═════╬═════╬═════╬═════╗
                                                 ║  R  ║  S  ║  N  ║  D  ║  B  ║      ║  .  ║  A  ║  E  ║  I  ║  H  ║
                                                 ╠═════╬═════╬═════╬═════╬═════╣      ╠═════╬═════╬═════╬═════╬═════╣
-                                                ║  X [Z] F  ║  L [J] C  ║  W  ║      ║  ,  ║  U [_] O  ║  Y [Q] K  ║
+                                                ║  X  ║  F [Z] L [J] C  ║  W  ║      ║  ,  ║  U [_] O [Q] Y  ║  K  ║
                                                 ╚═════╩═════╩═════╬═════╬═════╣      ╠═════╬═════╬═════╩═════╩═════╝
                                                                   ║ nav ║  T  ║      ║ spc ║ sym ║
                                                                   ╚═════╩═════╝      ╚═════╩═════╝
@@ -151,7 +149,7 @@
         };
         combo_z {
                timeout-ms = <30>;
-               key-positions = <LOC_X LOC_F>;
+               key-positions = <LOC_F LOC_L>;
                bindings = <&kp Z>;
                layers = <0>;
         };
@@ -169,7 +167,7 @@
         };
         combo_q {
                timeout-ms = <30>;
-               key-positions = <LOC_Y LOC_K>;
+               key-positions = <LOC_O LOC_Y>;
                bindings = <&kp Q>;
                layers = <0>;
         };
