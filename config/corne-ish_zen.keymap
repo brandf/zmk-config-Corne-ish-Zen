@@ -21,8 +21,8 @@
 #define LOC_V (LOC_DQT+1)
 
 #define LOC_F 26
-#define LOC_L (LOC_X+2)
-#define LOC_C (LOC_X+3)
+#define LOC_L (LOC_F+2)
+#define LOC_C (LOC_F+3)
 
 #define LOC_U 31
 #define LOC_O (LOC_U+1)
