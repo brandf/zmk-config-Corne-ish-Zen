@@ -15,22 +15,23 @@
 #define NUM 3
 
 #define LOC_G 3
-#define LOC_M 4
+#define LOC_M (LOC_M+1)
 
 #define LOC_DQT 8
-#define LOC_V 8
+#define LOC_V (LOC_DQT+1)
 
 #define LOC_X 25
-#define LOC_F 26
-
-#define LOC_L 27
-#define LOC_C 28
+#define LOC_F (LOC_X+1)
+#define LOC_L (LOC_X+2)
+#define LOC_C (LOC_X+3)
 
 #define LOC_U 31
-#define LOC_O 32
+#define LOC_O (LOC_U+1)
+#define LOC_Y (LOC_U+2)
+#define LOC_K (LOC_K+3)
 
-#define LOC_Y 33
-#define LOC_K 34
+#define LOC_NAV 37
+#define LOC_SYM 40
 /*
 
                                                                                 Base
@@ -87,7 +88,7 @@
 /* ╚═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╝ */
      &none                  &kp X    /* &kp Z */  &kp F             &kp L   /* &kp J */  &kp C              &kp W                     &kp COMMA           &kp U  /* &kp _ */   &kp O             &kp Y   /* &kp Q */    &kp K             &none
 /* ╚═════════════════╩═══════════════════╩═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╩═══════════════════╩═════════════════╝ */
-                                                                    &none                &sl NUM            &kp T                     &kp SPC             &sl SYM              &none
+                                                                    &none                &sl NAV            &kp T                     &kp SPC             &sl SYM              &none
 /*                                                           ╚═══════════════════╩═══════════════════╩═════════════════╝        ╚═════════════════╩═══════════════════╩═══════════════════╝                                                           */
                              >;
                      };
@@ -171,6 +172,12 @@
                key-positions = <LOC_Y LOC_K>;
                bindings = <&kp Q>;
                layers = <0>;
+        };
+        combo_num {
+               timeout-ms = <30>;
+               key-positions = <LOC_NAV LOC_SYM>;
+               bindings = <&sl NUM>;
+               layers = <0 1 2>;
         };
     };
 };
