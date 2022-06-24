@@ -14,10 +14,10 @@
 #define SYM 2
 #define NUM 3
 
-#define LOC_G 3
-#define LOC_M (LOC_M+1)
+#define LOC_G 2
+#define LOC_M (LOC_G+1)
 
-#define LOC_DQT 8
+#define LOC_x 8
 #define LOC_V (LOC_DQT+1)
 
 #define LOC_X 25
@@ -28,7 +28,7 @@
 #define LOC_U 31
 #define LOC_O (LOC_U+1)
 #define LOC_Y (LOC_U+2)
-#define LOC_K (LOC_K+3)
+#define LOC_K (LOC_U+3)
 
 #define LOC_NAV 37
 #define LOC_SYM 40
@@ -82,7 +82,7 @@
                         label = "Base";
                         bindings = <
 /* ╔═════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═════════════════╗        ╔═════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═══════════════════╦═════════════════╗ */
-     &none                  &none             &kp G   /* &kp LSHFT */  &kp M             &kp P              &none                      &none          &kp SQT  /* &kp RSHFT */ &kp DQT            &kp V                &none              &none
+     &none                  &none             &kp G   /* &kp LSHFT */  &kp M             &kp P              &none                      &none              &kp SQT         &kp DQT   /* &kp RSHFT */  &kp V             &none              &none
 /* ╔═════════════════╦═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╦═════════════════╗ */
      &none                  &kp R              &kp S                &kp N                &kp D              &kp B                     &kp DOT             &kp A                &kp E               &kp I               &kp H              &none
 /* ╚═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╣        ╠═════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═══════════════════╬═════════════════╝ */
@@ -146,7 +146,7 @@
         combo_rshift {
                timeout-ms = <30>;
                key-positions = <LOC_DQT LOC_V>;
-               bindings = <&kp RSHFT>;
+               bindings = <&kp LSHFT>;
                layers = <0>;
         };
         combo_z {
