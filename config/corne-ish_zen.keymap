@@ -135,7 +135,7 @@
             wait-ms = <30>;
             tap-ms = <30>;
             bindings = <&kp Q &kp U>;
-        );
+        )
      };
      combos {
         compatible = "zmk,combos";
