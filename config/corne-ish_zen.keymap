@@ -134,7 +134,7 @@
         ZMK_MACRO(macro_qu,
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_tap &kp Q &kp U>;
+            bindings = <&kp Q &kp U>;
         );
      };
      combos {
