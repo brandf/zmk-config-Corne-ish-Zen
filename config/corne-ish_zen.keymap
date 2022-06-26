@@ -130,7 +130,7 @@
                      };
         };
 
-      macros {quyoqyoq
+      macros {
         ZMK_MACRO(macro_qu,
             wait-ms = <30>;
             tap-ms = <40>;
