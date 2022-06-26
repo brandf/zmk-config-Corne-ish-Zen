@@ -130,10 +130,10 @@
                      };
         };
 
-      macros {
+      macros {quyoqyoq
         ZMK_MACRO(macro_qu,
             wait-ms = <30>;
-            tap-ms = <30>;
+            tap-ms = <40>;
             bindings = <&kp Q &kp U>;
         )
      };
@@ -158,13 +158,13 @@
                layers = <0>;
         };
         combo__ {
-               timeout-ms = <60>;
+               timeout-ms = <45>;
                key-positions = <LOC_U LOC_O>;
                bindings = <&kp UNDERSCORE>;
                layers = <0>;
         };
         combo_q {
-               timeout-ms = <60>;
+               timeout-ms = <45>;
                key-positions = <LOC_O LOC_Y>;
                bindings = <&kp Q>;
                layers = <0>;
@@ -182,7 +182,7 @@
                layers = <0>;
         };
         combo_num {
-               timeout-ms = <60>;
+               timeout-ms = <75>;
                key-positions = <LOC_NAV LOC_SYM>;
                bindings = <&sl NUM>;
                layers = <0>;
