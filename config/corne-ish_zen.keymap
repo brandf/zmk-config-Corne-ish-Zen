@@ -25,8 +25,8 @@
 #define LOC_L (LOC_X+2)
 
 #define LOC_O 32
-#define LOC_Y (LOC_U+2)
-#define LOC_K (LOC_U+3)
+#define LOC_Y (LOC_O+1)
+#define LOC_K (LOC_O+2)
 
 #define HT_1 &ht F1 NUM_1
 #define HT_2 &ht F2 NUM_2
@@ -42,6 +42,7 @@
 #define HT_12_PLUS &ht F12 KP_PLUS
 #define HT_BT_MINUS &ht BT_CLR KP_MINUS 
 #define HT_RDO_UND &ht U_RDO U_UND 
+
 /*
                                  L0         
                                                                   
