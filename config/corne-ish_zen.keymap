@@ -24,6 +24,9 @@
 #define LOC_F (LOC_X+1)
 #define LOC_L (LOC_X+2)
 
+#define LOC_W 29
+#define LOC_COMMA (LOC_W+1)
+
 #define LOC_O 32
 #define LOC_Y (LOC_O+1)
 #define LOC_K (LOC_O+2)
@@ -40,7 +43,6 @@
 #define HT_10       &http   F10     NUM_0
 #define HT_11_AST   &http   F11     KP_ASTERISK
 #define HT_12_PLUS  &http   F12     KP_PLUS
-#define HT_BT_MINUS &httpbt F12  KP_MINUS 
 #define HT_RDO_UND  &http   U_RDO   U_UND 
 
 /*
@@ -76,7 +78,7 @@
 ╭──┴──┼─────┼─────┼─────┼──┴──╮      ╭─────┼─────┼─────┼─────┼─────╮
 │  *  │{F}4 │{F}5 │{F}6 │  +  │      │  @  │  '  │  "  │  =  │  ;  │
 ├─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┤
-│  0  │{F}1 │{F}2 │{F}3 │  -  ├{bt_c}│ cut │  $  │  %  │  #  │  _  │
+│  0  │{F}1 │{F}2 │{F}3 │  -  ├[bt_c]┤ cut │  $  │  %  │  #  │  _  │
 ╰──┬──┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
  {F10}            │ cpy │ pst │      │ udo │  L2 │      
                   ╰─────┴─────╯      ╰──┬──┴─────╯      
@@ -121,7 +123,7 @@
 /*                   ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮      ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮                  */
      &none                   HT_11_AST           HT_4                HT_5                HT_6             HT_12_PLUS                  &kp AT_SIGN         &kp SQT              &kp DQT           &kp EQUAL           &kp SEMI            &none
 /*                   ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤                  */
-     &none                   HT_10               HT_1                HT_2                HT_3             HT_BT_MINUS                  U_CUT             &kp DOLLAR           &kp PERCENT        &kp HASH          &kp UNDERSCORE        &none
+     &none                   HT_10               HT_1                HT_2                HT_3             &kp MINUS                    U_CUT             &kp DOLLAR           &kp PERCENT        &kp HASH          &kp UNDERSCORE        &none
 /*                   ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                  */
                                                                    &none                U_CPY               U_PST                     HT_RDO_UND           &none             &none
 /*                                                                               ╰───────────────────┴───────────────────╯      ╰───────────────────┴───────────────────╯                                                                              */
@@ -130,15 +132,6 @@
         };
     behaviors {
         http: hold_tap_tap_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            label = "hold tap";
-            #binding-cells = <2>;
-            tapping_term_ms = <135>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        httpbt: hold_tap_tap_preferred_bt {
             compatible = "zmk,behavior-hold-tap";
             label = "hold tap";
             #binding-cells = <2>;
@@ -166,6 +159,12 @@
                timeout-ms = <60>;
                key-positions = <LOC_F LOC_L>;
                bindings = <&kp Z>;
+               layers = <0>;
+        };
+        combo_bt {
+               timeout-ms = <100>;
+               key-positions = <LOC_W LOC_COMMA>;
+               bindings = <&kt BT_CLR>;
                layers = <0>;
         };
         combo_bspc {
