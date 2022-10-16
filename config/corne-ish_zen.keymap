@@ -28,20 +28,20 @@
 #define LOC_Y (LOC_O+1)
 #define LOC_K (LOC_O+2)
 
-#define HT_1 &http F1 NUM_1
-#define HT_2 &http F2 NUM_2
-#define HT_3 &http F3 NUM_3
-#define HT_4 &http F4 NUM_4
-#define HT_5 &http F5 NUM_5
-#define HT_6 &http F6 NUM_6
-#define HT_7 &http F7 NUM_7
-#define HT_8 &http F8 NUM_8
-#define HT_9 &http F9 NUM_9
-#define HT_10 &http F10 NUM_0
-#define HT_11_AST &http F11 KP_ASTERISK
-#define HT_12_PLUS &http F12 KP_PLUS
-#define HT_BT_MINUS &http BT_CLR KP_MINUS 
-#define HT_RDO_UND &http U_RDO U_UND 
+#define HT_1        &none
+#define HT_2        &none
+#define HT_3        &none
+#define HT_4        &none
+#define HT_5        &none
+#define HT_6        &none
+#define HT_7        &none
+#define HT_8        &none
+#define HT_9        &none
+#define HT_10       &none
+#define HT_11_AST   &none
+#define HT_12_PLUS  &none
+#define HT_BT_MINUS &none
+#define HT_RDO_UND  &none
 
 /*
                                  L0         
@@ -95,7 +95,7 @@
 /*                   ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤                  */
      &none                  &kp X              &kp F                 &kp L                &kp C              &kp W                     &kp COMMA           &kp U               &kp O                &kp Y               &kp K            &none
 /*                   ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                  */
-                                                                    &none                &sl L1             &kp T                     &kp SPACE             &sl L1           &none
+                                                                    &none                &sl L1             &kp T                     &kp SPACE             &sl L2           &none
 /*                                                                               ╰───────────────────┴───────────────────╯      ╰───────────────────┴───────────────────╯                                                                              */
                              >;
                      };
@@ -110,6 +110,20 @@
      &none                   &kp LT             &kp GT             &kp LBKT            &kp RBKT            &kp LGUI                  &kp PG_DN           &kp HOME            &kp TAB              &kp END             &kp DEL            &none
 /*                   ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                  */
                                                                   &none                &none               &kp LSHFT                 &kp LCTRL           &kp LALT             &none
+/*                                                                               ╰───────────────────┴───────────────────╯      ╰───────────────────┴───────────────────╯                                                                              */
+                             >;
+                     };
+                     L2 {
+                             label = "L2";
+                             bindings = <
+/*                                       ╭───────────────────┬───────────────────┬───────────────────╮                                              ╭───────────────────┬───────────────────┬───────────────────╮                                      */
+     &none                   &none               HT_7                HT_8                HT_9              &none                       &none            &kp AMPERSAND        &kp PIPE           &kp CARET             &none              &none
+/*                   ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮      ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮                  */
+     &none                   HT_11_AST           HT_4                HT_5                HT_6             HT_12_PLUS                  &kp AT_SIGN         &kp SQT              &kp DQT           &kp EQUAL           &kp SEMI            &none
+/*                   ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤                  */
+     &none                   HT_10               HT_1                HT_2                HT_3             HT_BT_MINUS                  U_CUT             &kp DOLLAR           &kp PERCENT        &kp HASH          &kp UNDERSCORE        &none
+/*                   ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                  */
+                                                                   &none                U_CPY               U_PST                     HT_RDO_UND           &none             &none
 /*                                                                               ╰───────────────────┴───────────────────╯      ╰───────────────────┴───────────────────╯                                                                              */
                              >;
                      };
