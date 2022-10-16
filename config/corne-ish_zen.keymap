@@ -28,20 +28,20 @@
 #define LOC_Y (LOC_O+1)
 #define LOC_K (LOC_O+2)
 
-#define HT_1 &ht F1 NUM_1
-#define HT_2 &ht F2 NUM_2
-#define HT_3 &ht F3 NUM_3
-#define HT_4 &ht F4 NUM_4
-#define HT_5 &ht F5 NUM_5
-#define HT_6 &ht F6 NUM_6
-#define HT_7 &ht F7 NUM_7
-#define HT_8 &ht F8 NUM_8
-#define HT_9 &ht F9 NUM_9
-#define HT_10 &ht F10 NUM_0
-#define HT_11_AST &ht F11 KP_ASTERISK
-#define HT_12_PLUS &ht F12 KP_PLUS
-#define HT_BT_MINUS &ht BT_CLR KP_MINUS 
-#define HT_RDO_UND &ht U_RDO U_UND 
+#define HT_1 &http F1 NUM_1
+#define HT_2 &http F2 NUM_2
+#define HT_3 &http F3 NUM_3
+#define HT_4 &http F4 NUM_4
+#define HT_5 &http F5 NUM_5
+#define HT_6 &http F6 NUM_6
+#define HT_7 &http F7 NUM_7
+#define HT_8 &http F8 NUM_8
+#define HT_9 &http F9 NUM_9
+#define HT_10 &http F10 NUM_0
+#define HT_11_AST &http F11 KP_ASTERISK
+#define HT_12_PLUS &http F12 KP_PLUS
+#define HT_BT_MINUS &http BT_CLR KP_MINUS 
+#define HT_RDO_UND &http U_RDO U_UND 
 
 /*
                                  L0         
@@ -129,7 +129,7 @@
                      };
         };
     behaviors {
-        ht: hold_tap {
+        http: hold_tap_tap_preferred {
             compatible = "zmk,behavior-hold-tap";
             label = "hold tap";
             #binding-cells = <2>;
