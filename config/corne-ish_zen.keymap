@@ -40,7 +40,7 @@
 #define HT_10       &http   F10     NUM_0
 #define HT_11_AST   &http   F11     KP_ASTERISK
 #define HT_12_PLUS  &http   F12     KP_PLUS
-#define HT_BT_MINUS &httpbt BT_CLR  KP_MINUS 
+#define HT_BT_MINUS &httpbt F12  KP_MINUS 
 #define HT_RDO_UND  &http   U_RDO   U_UND 
 
 /*
@@ -145,7 +145,7 @@
             tapping_term_ms = <135>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&bt>, <&kp>;
+            bindings = <&kp>, <&kp>;
         };
     };
     combos {
