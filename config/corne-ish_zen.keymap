@@ -14,22 +14,8 @@
 #define L1 1
 #define L2 2
 
-#define LOC_G 2
-#define LOC_M (LOC_G+1)
-
-#define LOC_EXC 8
-#define LOC_V (LOC_EXC+1)
-
-#define LOC_X 25
-#define LOC_F (LOC_X+1)
-#define LOC_L (LOC_X+2)
-
-#define LOC_W 29
-#define LOC_COMMA (LOC_W+1)
-
-#define LOC_O 32
-#define LOC_Y (LOC_O+1)
-#define LOC_K (LOC_O+2)
+#define LOC_DOT 18
+#define LOC_COMMA 30
 
 #define HT_1        &http   F1      NUM_1
 #define HT_2        &http   F2      NUM_2
@@ -42,8 +28,11 @@
 #define HT_9        &http   F9      NUM_9
 #define HT_10       &http   F10     NUM_0
 #define HT_11_AST   &http   F11     KP_ASTERISK
-#define HT_12_PLUS  &http   F12     KP_PLUS
-#define HT_RDO_UND  &http   U_RDO   U_UND
+#define HT_12_CUT   &http   F12     LC(X)
+#define HT_HASH_AT_SIGN   &http HASH    AT_SIGN
+#define HT_GRAVE_SQT      &http GRAVE   SQT
+#define HT_PERCENT_DOLLAR &http PERCENT DOLLAR
+#define HT_CARET_TILDE    &http CARET   TILDE
 
 /*
                                 L0
@@ -76,11 +65,11 @@
       ╭─────┬─────┬─────╮                  ╭─────┬─────┬─────╮
  {F10}│{F}7 │{F}8 │{F}9 │                  │  !  │  &  │  |  │
 ╭──┴──┼─────┼─────┼─────┼─────╮      ╭─────┼─────┼─────┼─────┼─────╮
-│  0  │{F}4 │{F}5 │{F}6 │ cpy ├{F12} │{`}' │  "  │  =  │  +  │  ;  │
+│  0  │{F}4 │{F}5 │{F}6 │ cpy │      │{`}' │  "  │  =  │  +  │  ;  │
 ├─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┤
-│  *  │{F}1 │{F}2 │{F}3 │ pst │      │{#}@ │{%}$ │{^}~ │  -  │  _  │
+│  *  │{F}1 │{F}2 │{F}3 │ cut ├{F12} │{#}@ │{%}$ │{^}~ │  -  │  _  │
 ╰──┬──┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
- {F11}            │ cut │ udo │      │ rdo │  L2 │
+ {F11}            │ udo │ pst │      │ rdo │  L2 │
                   ╰─────┴─────╯      ╰─────┴─────╯
 */
 / {
@@ -104,7 +93,7 @@
                              label = "L1";
                              bindings = <
 /*                                       ╭───────────────────┬───────────────────┬───────────────────╮                                              ╭───────────────────┬───────────────────┬───────────────────╮                                      */
-     &none                   &none             &kp LALT            &kp LPAR            &kp RPAR            &none                      &none               &kp ESC             &kp UP              &kp BSPC              &none            &none
+     &none                   &none             &kp LALT            &kp LPAR            &kp RPAR            &none                      &none               &kp ESC             &kp UP              &kp BSPC              &none             &none
 /*                   ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮      ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮                  */
      &none                 &kp LSHFT           &kp LCTRL           &kp LBRC            &kp RBRC            &kp LT                     &kp PG_UP           &kp LEFT            &kp DOWN             &kp RIGHT           &kp ENTER          &none
 /*                   ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤                  */
@@ -118,20 +107,16 @@
                              label = "L2";
                              bindings = <
 /*                                       ╭───────────────────┬───────────────────┬───────────────────╮                                              ╭───────────────────┬───────────────────┬───────────────────╮                                      */
-     &none                   &none               HT_7                HT_8                HT_9              &none                       &none            &kp EXCLAMATION        &kp AMPERSAND      &kp PIPE            &none              &none
+     &none                   &none               HT_7                HT_8                HT_9              &none                       &none            &kp EXCLAMATION     &kp AMPERSAND         &kp PIPE             &none              &none
 /*                   ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮      ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮                  */
-     &none                   HT_11_AST           HT_4                HT_5                HT_6             HT_12_PLUS                  &kp AT_SIGN         &kp SQT              &kp DQT           &kp EQUAL           &kp SEMI            &none
+     &none                   HT_10               HT_4                HT_5                HT_6               U_CPY                   HT_GRAVE_SQT           &kp DQT            &kp EQUAL           &kp KP_PLUS          &kp SEMI           &none
 /*                   ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤                  */
-     &none                   HT_10               HT_1                HT_2                HT_3             &kp MINUS                    U_CUT             &kp DOLLAR           &kp PERCENT        &kp HASH          &kp UNDERSCORE        &none
+     &none                   HT_11_AST           HT_1                HT_2                HT_3             HT_12_CUT                HT_HASH_AT_SIGN    HT_PERCENT_DOLLAR    HT_CARET_TILDE         &kp MINUS         &kp UNDERSCORE        &none
 /*                   ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤      ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                  */
-                                                                   &none                U_CPY               U_PST                     HT_RDO_UND           &none             &none
+                                                                   &none                U_UND               U_PST                       U_RDO              &none
 /*                                                                               ╰───────────────────┴───────────────────╯      ╰───────────────────┴───────────────────╯                                                                              */
                              >;
                      };
-
-                     /* &kp CARET */
-                     /* &kp GRAVE */
-                     /* &kp TILDE */
         };
     behaviors {
         http: hold_tap_tap_preferred {
@@ -146,46 +131,10 @@
     };
     combos {
         compatible = "zmk,combos";
-        combo_j {
-               timeout-ms = <60>;
-               key-positions = <LOC_G LOC_M>;
-               bindings = <&kp J>;
-               layers = <0>;
-        };
-        combo_lshift {
-               timeout-ms = <60>;
-               key-positions = <LOC_X LOC_F>;
-               bindings = <&kp LSHFT>;
-               layers = <0>;
-        };
-        combo_z {
-               timeout-ms = <60>;
-               key-positions = <LOC_F LOC_L>;
-               bindings = <&kp Z>;
-               layers = <0>;
-        };
         combo_bt {
-               timeout-ms = <100>;
-               key-positions = <LOC_W LOC_COMMA>;
+               timeout-ms = <60>;
+               key-positions = <LOC_DOT LOC_COMMA>;
                bindings = <&bt BT_CLR>;
-               layers = <0>;
-        };
-        combo_bspc {
-               timeout-ms = <60>;
-               key-positions = <LOC_EXC LOC_V>;
-               bindings = <&kp BSPC>;
-               layers = <0>;
-        };
-        combo_q {
-               timeout-ms = <45>;
-               key-positions = <LOC_O LOC_Y>;
-               bindings = <&kp Q>;
-               layers = <0>;
-        };
-        combo_rshift {
-               timeout-ms = <60>;
-               key-positions = <LOC_Y LOC_K>;
-               bindings = <&kp RSHFT>;
                layers = <0>;
         };
     };
