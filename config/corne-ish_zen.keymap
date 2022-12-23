@@ -121,10 +121,15 @@
                      };
         };
       macros {
-        ZMK_MACRO(macro_pm_pl,
+        ZMK_MACRO(macro_pl,
             wait-ms = <30>;
             tap-ms = <30>;
             bindings = <&kp P &kp L>;
+        )
+        ZMK_MACRO(macro_lp,
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp L &kp P>;
         )
      };
     behaviors {
@@ -149,7 +154,13 @@
         combo_pm {
                timeout-ms = <75>;
                key-positions = <LOC_P LOC_M>;
-               bindings = <&macro_pm_pl>;
+               bindings = <&macro_pl>;
+               layers = <0>;
+        };        
+        combo_mp {
+               timeout-ms = <75>;
+               key-positions = <LOC_M LOC_P>;
+               bindings = <&macro_lp>;
                layers = <0>;
         };
     };
