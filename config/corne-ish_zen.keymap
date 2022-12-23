@@ -16,6 +16,8 @@
 
 #define LOC_DOT 18
 #define LOC_COMMA 30
+#define LOC_M 3
+#define LOC_P 4
 
 #define HT_1        &http   F1      NUM_1
 #define HT_2        &http   F2      NUM_2
@@ -118,12 +120,19 @@
                              >;
                      };
         };
+      macros {
+        ZMK_MACRO(macro_pm_pl,
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp P &kp L>;
+        )
+     };
     behaviors {
         http: hold_tap_tap_preferred {
             compatible = "zmk,behavior-hold-tap";
             label = "hold tap";
             #binding-cells = <2>;
-            tapping_term_ms = <135>;
+            tapping_term_ms = <250>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -135,6 +144,12 @@
                timeout-ms = <60>;
                key-positions = <LOC_DOT LOC_COMMA>;
                bindings = <&bt BT_CLR>;
+               layers = <0>;
+        };
+        combo_pm {
+               timeout-ms = <75>;
+               key-positions = <LOC_P LOC_M>;
+               bindings = <&macro_pm_pl>;
                layers = <0>;
         };
     };
