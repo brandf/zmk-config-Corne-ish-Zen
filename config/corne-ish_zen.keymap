@@ -116,7 +116,7 @@
                      };
         };
       macros {
-        ZMK_MACRO(macro_pl,
+        ZMK_MACRO(macro_gl,
             wait-ms = <30>;
             tap-ms = <30>;
             bindings = <&kp G &kp L>;
@@ -126,7 +126,7 @@
             tap-ms = <30>;
             bindings = <&kp P &kp L>;
         )
-        ZMK_MACRO(macro_cl,
+        ZMK_MACRO(macro_lp,
             wait-ms = <30>;
             tap-ms = <30>;
             bindings = <&kp L &kp P>;
@@ -162,22 +162,22 @@
                bindings = <&bt BT_CLR>;
                layers = <0>;
         };
-        combo_gm {
+        combo_gl {
                timeout-ms = <75>;
                key-positions = <2 3>;
                bindings = <&macro_gl>;
                layers = <0>;
         };
-        combo_pm {
+        combo_pl {
                timeout-ms = <75>;
                key-positions = <4 3>;
                bindings = <&macro_pl>;
                layers = <0>;
         };
-        combo_mp {
+        combo_lp {
                timeout-ms = <75>;
                key-positions = <27 28>;
-               bindings = <&macro_lp;
+               bindings = <&macro_lp>;
                layers = <0>;
         };
     };
