@@ -14,27 +14,22 @@
 #define L1 1
 #define L2 2
 
-#define LOC_DOT 18
-#define LOC_COMMA 30
-#define LOC_M 3
-#define LOC_P 4
-
-#define HT_1        &http   F1      NUM_1
-#define HT_2        &http   F2      NUM_2
-#define HT_3        &http   F3      NUM_3
-#define HT_4        &http   F4      NUM_4
-#define HT_5        &http   F5      NUM_5
-#define HT_6        &http   F6      NUM_6
-#define HT_7        &http   F7      NUM_7
-#define HT_8        &http   F8      NUM_8
-#define HT_9        &http   F9      NUM_9
-#define HT_10       &http   F10     NUM_0
-#define HT_11_AST   &http   F11     KP_ASTERISK
-#define HT_12_CUT   &http   F12     LC(X)
-#define HT_HASH_AT_SIGN   &http HASH    AT_SIGN
-#define HT_GRAVE_SQT      &http GRAVE   SQT
-#define HT_PERCENT_DOLLAR &http PERCENT DOLLAR
-#define HT_CARET_TILDE    &http CARET   TILDE
+#define HT_1              &http   F1      NUM_1
+#define HT_2              &http   F2      NUM_2
+#define HT_3              &http   F3      NUM_3
+#define HT_4              &http   F4      NUM_4
+#define HT_5              &http   F5      NUM_5
+#define HT_6              &http   F6      NUM_6
+#define HT_7              &http   F7      NUM_7
+#define HT_8              &http   F8      NUM_8
+#define HT_9              &http   F9      NUM_9
+#define HT_10             &http   F10     NUM_0
+#define HT_11_AST         &http   F11     KP_ASTERISK
+#define HT_12_CUT         &http   F12     LC(X)
+#define HT_HASH_AT_SIGN   &http   HASH    AT_SIGN
+#define HT_GRAVE_SQT      &http   GRAVE   SQT
+#define HT_PERCENT_DOLLAR &http   PERCENT DOLLAR
+#define HT_CARET_TILDE    &http   CARET   TILDE
 
 /*
                                 L0
@@ -124,9 +119,14 @@
         ZMK_MACRO(macro_pl,
             wait-ms = <30>;
             tap-ms = <30>;
+            bindings = <&kp G &kp L>;
+        )
+        ZMK_MACRO(macro_pl,
+            wait-ms = <30>;
+            tap-ms = <30>;
             bindings = <&kp P &kp L>;
         )
-        ZMK_MACRO(macro_lp,
+        ZMK_MACRO(macro_cl,
             wait-ms = <30>;
             tap-ms = <30>;
             bindings = <&kp L &kp P>;
@@ -143,24 +143,41 @@
             bindings = <&kp>, <&kp>;
         };
     };
+/*
+      ╭─────┬─────┬─────╮                  ╭─────┬─────┬─────╮
+      │  2  │  3  │  4  │                  │  7  │  8  │  9  │
+╭─────┼─────┼─────┼─────┼─────╮      ╭─────┼─────┼─────┼─────┼─────╮
+│  13 │  14 │  15 │  16 │  17 │      │  18 │  19 │  20 │  21 │  22 │
+├─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┤
+│  25 │  26 │  27 │  28 │  29 │      │  30 │  31 |  32 |  33 │  34 │
+╰─────┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
+                  │  37 │  38 │      │  39 │  40 │
+                  ╰─────┴─────╯      ╰─────┴─────╯
+*/
     combos {
         compatible = "zmk,combos";
         combo_bt {
                timeout-ms = <60>;
-               key-positions = <LOC_DOT LOC_COMMA>;
+               key-positions = <18 30>;
                bindings = <&bt BT_CLR>;
+               layers = <0>;
+        };
+        combo_gm {
+               timeout-ms = <75>;
+               key-positions = <2 3>;
+               bindings = <&macro_gl>;
                layers = <0>;
         };
         combo_pm {
                timeout-ms = <75>;
-               key-positions = <LOC_P LOC_M>;
+               key-positions = <4 3>;
                bindings = <&macro_pl>;
                layers = <0>;
-        };        
+        };
         combo_mp {
                timeout-ms = <75>;
-               key-positions = <LOC_M LOC_P>;
-               bindings = <&macro_lp>;
+               key-positions = <27 28>;
+               bindings = <&macro_lp;
                layers = <0>;
         };
     };
